@@ -1,0 +1,27 @@
+{
+  "name": "teste-fullstack",
+  "version": "1.0.0",
+  "description": "Teste full stack developer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardolagoeiro/teste-fullstack.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "Eduardo Lagoeiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eduardolagoeiro/teste-fullstack/issues"
+  },
+  "homepage": "https://github.com/eduardolagoeiro/teste-fullstack#readme",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}
