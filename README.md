@@ -69,7 +69,6 @@ DELETE - delete do usuário autenticado
 ```
 curl -X DELETE \
   http://localhost:3000/api/users/ \
-  -H 'postman-token: c666427a-8d79-dce5-5f7d-0aa2391e2952' \
   -H 'x-access-token: {{TOKEN_DE_AUTENTICAÇÃO}}'
 ```
 
