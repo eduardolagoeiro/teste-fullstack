@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>User API</title>
+</head>
+<body>
+  <div id="app">
+    <div v-show="alertType"
+      v-bind:class="alertClasses"
+      class="alert" role="alert">
+      {{message}}
+    </div>
+    <div v-if="!logged && !newUser" id="signin">
+      <center><h1 class="h3 mb-3 font-weight-normal">Please sign in</h1></center>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input v-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus="">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input v-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <button class="signin-btn btn btn-lg btn-primary btn-block" v-on:click="signinHandler">Sign in</button>
+      <center>
+        <br>
+        or
+        <button class="signup-btn btn btn-lg btn-primary btn-block" v-on:click="signupShower">Sign up</button>
+      </center>
+    </div>
+    <div v-if="!logged && newUser" id="signup">
+      <center><h1 class="h3 mb-3 font-weight-normal">Please sign up</h1></center>
+      <label for="inputName" class="sr-only">name</label>
+      <input v-model="name" type="text" id="inputName" class="form-control" placeholder="Type your name" required autofocus>
+      <label for="inputBirthday" class="sr-only">birthday</label>
+      <input v-model="birthday" type="date" id="inputBirthday" class="form-control">
+      <label for="inputEmail" class="sr-only">email</label>
+      <input v-model="email" type="email" id="inputEmail" class="form-control" placeholder="Type your email" required>
+      <label for="inputPassword" class="sr-only">password</label>
+      <input v-model="password" type="password" id="inputPassword" class="form-control" placeholder="create an password" required>
+      <button class="signup-btn btn btn-lg btn-primary btn-block" v-on:click="signupHandler">Sign up</button>
+      <center>
+        <br>
+        Already had an account?
+        <button class="signin-btn btn btn-lg btn-primary btn-block" v-on:click="signinShower">Sign in</button>
+      </center>
+    </div>
+    <div v-if="updateForm" id="signup">
+      <label for="inputName" class="sr-only">name</label>
+      <input v-model="name" type="text" id="inputName" class="form-control" placeholder="Type your name" required autofocus>
+      <label for="inputBirthday" class="sr-only">birthday</label>
+      <input v-model="birthday" type="date" id="inputBirthday" class="form-control">
+      <label for="inputEmail" class="sr-only">email</label>
+      <input v-model="email" type="email" id="inputEmail" class="form-control" placeholder="Type your email" required>
+      <label for="inputPassword" class="sr-only">password</label>
+      <input v-model="password" type="password" id="inputPassword" class="form-control" placeholder="create an password" required>
+      <button class="signoff-btn btn btn-lg btn-warning btn-block" v-on:click="updateHandler">Update</button>
+    </div>
+    <div class="user" v-if="logged && !updateForm">
+      <p type="text" class="form-control">{{name}}</p>
+      <p type="date" class="form-control">{{birthday}}</p>
+      <p type="email" class="form-control">{{email}}</p>
+      <button class="signoff-btn btn btn-lg btn-primary btn-block" v-on:click="signoffHandler">Sign off</button>
+      <button class="signoff-btn btn btn-lg btn-warning btn-block" v-on:click="updateShower">Update</button>
+      <button class="signoff-btn btn btn-lg btn-danger btn-block" v-on:click="deleteHandler">Delete</button>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

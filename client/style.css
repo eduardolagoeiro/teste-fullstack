@@ -1,0 +1,20 @@
+body {
+  background-color: lightblue;
+}
+
+#signin, #signup {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.signin-btn, .signup-btn {
+  margin-top: 20px;
+  max-width: 330px;
+}
+
+.user {
+  max-width: 330px;
+  margin: auto;
+}
