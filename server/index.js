@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
 const user = require('./routes/user');
-
 const app = express();
+app.set('secretKey', process.env.JWT_SECRET_KEY);
 app.use(bodyParser.json());
 app.use('/api/users', user);
 
@@ -13,6 +13,7 @@ app.listen(port, () => {
 })
 
 mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
 const mongoUrl = process.env.MONGO_URL || 'mongodb://mongodb0.example.com:27017/db';
 mongoose.connect(mongoUrl, {useNewUrlParser: true}, err => {
   if(err) console.error(err);
